@@ -1,15 +1,16 @@
 package model;
 
-public class Developer {
+public class Employee {
     private int id;
     private String name;
     private double salary;
 
-    public Developer(int id, String name, double salary) {
+    public Employee(int id, String name, double salary) {
         this.id = id;
         this.name = name;
         this.salary = salary;
     }
+
 
     public int getId() {
         return id;
@@ -32,10 +33,16 @@ public class Developer {
     }
 
     public void setSalary(double salary) {
-        this.salary = salary;
+        this.salary = salary < 0 ? 0 : salary;
     }
 
     public void work(){
         System.out.println("Employee starts to working");
+    }
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+        builder.append(" id " + id);
+        builder.append(" name " + name);
+        return builder.toString();
     }
 }
